@@ -2,6 +2,8 @@ Dir[File.dirname(__FILE__) + '/clauses/*.rb'].each {|file| require file }
 
 module RelationChecking
   class Checker
+    attr_reader :klass, :clauses
+
     def initialize(klass)
       @klass = klass
       @clauses = []
@@ -9,7 +11,7 @@ module RelationChecking
 
     def ==(relation)
        unless check_class_against(relation)
-         fail ArgumentError("The argument relation must intend the #{@klass.to_s} model")
+         fail ArgumentError.new("The argument relation must intend the #{@klass.to_s} model")
        end
 
        check_clauses_against(relation)
@@ -33,11 +35,11 @@ module RelationChecking
     end
 
     def check_clauses_against(relation)
-      @clauses.all? { |clause| clause.check_against(relation) }
+      clauses.all? { |clause| clause.check_against(relation) }
     end
 
     def add_clause(clause_class, args)
-      @clauses << clause_class.new(*args)
+      clauses << clause_class.new(*args)
     end
 
     def find_clause_class_for(clause_name)
