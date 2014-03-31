@@ -3,6 +3,8 @@ module RelationChecking
     class WhereClause < Clause
       class ValuesExtractor
         class ValueAdapter
+          attr_reader :value
+
           class_attribute :right_values
 
           self.right_values = {
@@ -14,14 +16,14 @@ module RelationChecking
           end
 
           def left_value
-            @value.left.name
+            value.left.name
           end
 
           def right_value
-            value_proc = self.right_values[@value.class]
+            value_proc = self.right_values[value.class]
 
             if value_proc.respond_to?(:call)
-              value_proc.call(@value.right)
+              value_proc.call(value.right)
             else
               raise NotImplementedError
             end
