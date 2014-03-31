@@ -1,4 +1,6 @@
-describe RelationChecking::Cheker do
+require 'spec_helper'
+
+describe RelationChecking::Checker do
   describe '#==' do
     it 'should return true if all of the clauses are passing' do
       pending

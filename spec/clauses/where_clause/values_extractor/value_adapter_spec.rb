@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe RelationChecking::Checker::WhereClause::ValuesExtractor::ValueAdapter do
   describe '#left_value' do
     it 'should return the name of the left part' do

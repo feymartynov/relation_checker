@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe RelationChecking::Checker::WhereClause do
   describe '#check_against' do
     it 'should return true if all conditions are present in the given relation' do

@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe RelationChecking::Checker::OrderClause do
   describe '#check_against' do
     it 'should return true if all of the order keys are present in the given relation' do
