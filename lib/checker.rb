@@ -8,7 +8,11 @@ module RelationChecking
     end
 
     def ==(relation)
-       check_class_against(relation) && check_clauses_against(relation)
+       unless check_class_against(relation)
+         fail ArgumentError("The argument relation must intend the #{@klass.to_s} model")
+       end
+
+       check_clauses_against(relation)
     end
 
     def method_missing(method_name, *args, &block)
