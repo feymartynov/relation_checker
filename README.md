@@ -57,7 +57,9 @@ The point is to call ```.relation_checker``` method on the ActiveRecord model an
 
 ## Testing
 
-\# TODO: add how to test this stuff
+```shell
+  bundle exec rspec spec
+```
 
 ## Contribution
 
