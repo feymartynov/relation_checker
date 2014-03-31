@@ -3,21 +3,25 @@ require 'spec_helper'
 describe RelationChecking::Checker do
   subject { RelationChecking::Checker.new(klass) }
   let(:klass) { double(:klass) }
-  let(:relation) { double(:relation, klass: klass) }
-  let(:clauses) do
-    3.times.map do
-      clause = double(:clause)
-      allow(clause).to receive(:check_against).with(relation).and_return(true)
-      clause
-    end
-  end
 
   before do
-    allow(subject).to receive(:clauses).and_return(clauses)
     allow(klass).to receive(:<=).with(klass).and_return(true)
   end
 
   describe '#==' do
+    let(:relation) { double(:relation, klass: klass) }
+    let(:clauses) do
+      3.times.map do
+        clause = double(:clause)
+        allow(clause).to receive(:check_against).with(relation).and_return(true)
+        clause
+      end
+    end
+
+    before do
+      allow(subject).to receive(:clauses).and_return(clauses)
+    end
+
     it 'should return true if all of the clauses are passing' do
       expect(subject == relation).to eq(true)
     end
@@ -43,18 +47,33 @@ describe RelationChecking::Checker do
 
   describe '#method_missing' do
     context 'clause method call' do
-      it 'should add the requested clause with the specified arguments' do
-        pending
+      before :all do
+        class RelationChecking::Checker::DummyClause < RelationChecking::Checker::Clause
+          def check_against(_)
+            true
+          end
+        end
+      end
+
+      it 'should add the requested clause' do
+        subject.method_missing(:dummy)
+        expect(subject.clauses.first.class).to eq(RelationChecking::Checker::DummyClause)
+      end
+
+      it 'should pass the arguments to the clause constructor' do
+        args = [:some, :arguments]
+        expect(RelationChecking::Checker::DummyClause).to receive(:new).with(*args)
+        subject.dummy(*args)
       end
 
       it 'should chain the call' do
-        pending
+        expect(subject.method_missing(:dummy)).to eq(subject)
       end
     end
 
     context 'misc call' do
-      it 'should behave as default' do
-        pending
+      it 'should behave as default method_missing' do
+        expect { subject.method_missing(:something_missing) }.to raise_error(NoMethodError)
       end
     end
   end
