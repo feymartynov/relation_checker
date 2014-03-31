@@ -1,4 +1,4 @@
-require 'relation_checker/checker'
+require 'checker'
 
 module RelationChecking
   extend ActiveSupport::Concern

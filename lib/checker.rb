@@ -1,5 +1,4 @@
-require 'relation_checker/clauses/where_clause'
-require 'relation_checker/clauses/order_clause'
+Dir[File.dirname(__FILE__) + '/clauses/*.rb'].each {|file| require file }
 
 module RelationChecking
   class Checker

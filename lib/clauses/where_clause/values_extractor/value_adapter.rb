@@ -1,6 +1,6 @@
 module RelationChecking
-  class RelationChecker
-    class WhereClause < RelationChecking::RelationChecker::Clause
+  class Checker
+    class WhereClause < Clause
       class ValuesExtractor
         class ValueAdapter
           class_attribute :right_values

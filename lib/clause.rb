@@ -1,5 +1,5 @@
 module RelationChecking
-  class RelationChecker
+  class Checker
     class Clause
       def check_against(_)
         raise NotImplementedError
