@@ -29,6 +29,10 @@ Basically, it checks if all necessary WHEREs (and other clauses) are on their pl
 * The syntax looks like usual ActiveRecord query, so it's easy to write specs.
 * Independent of the testing engine: RSpec, Minitest, Test::Unit, whatever…
 
+## Installation
+
+\# TODO: add something here after publishing it on RubyGems
+
 ## Usage
 
 Given a method returning a relation object:
@@ -51,3 +55,10 @@ Notice, that we expect the checker to be equal to the method result, not contrar
 
 The point is to call ```.relation_checker``` method on the ActiveRecord model and then we can chain it further with ```.where```, ```.order``` and others.
 
+## Testing
+
+\# TODO: add how to test this stuff
+
+## Contribution
+
+Just fork this repo and make a pull request if you wish.
