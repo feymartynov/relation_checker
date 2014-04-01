@@ -17,8 +17,8 @@ module RelationChecking
 
       def check_against(relation)
         results = @order_values.map do |field, direction|
-          search = "\\\"#{relation.klass.table_name}\\\".#{field} #{direction.to_s.upcase}"
-          relation.order_values.find(search)
+          search = "\"#{relation.klass.table_name}\".#{field} #{direction.to_s.upcase}"
+          relation.arel.orders.find { |v| v == search }
         end
 
         results.none?(&:nil?) && results.sort == results
