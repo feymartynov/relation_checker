@@ -29,9 +29,20 @@ Basically, it checks if all necessary WHEREs (and other clauses) are on their pl
 * The syntax looks like usual ActiveRecord query, so it's easy to write specs.
 * Independent of the testing engine: RSpec, Minitest, Test::Unit, whatever…
 
+## Requirements
+
+* Ruby >= 1.9 (tested with MRI 2.0.0)
+* Rails >= 3.2 (tested with Rails 4.0.0)
+
 ## Installation
 
-\# TODO: add something here after publishing it on RubyGems
+1. Add to your Gemfile:
+   
+   ```ruby
+   gem 'relation_checker', github: 'durnoyabsurd/relation_checker', group: :test
+   ```
+
+2. Run ```bundle install```.
 
 ## Usage
 
