@@ -1,9 +1,9 @@
-require 'clause'
+require 'clauses/base_clause'
 require 'clauses/where_clause/values_extractor'
 
 module RelationChecking
-  class Checker
-    class WhereClause < Clause
+  module Clauses
+    class WhereClause < BaseClause
       def initialize(conditions = {})
         @conditions = conditions
       end

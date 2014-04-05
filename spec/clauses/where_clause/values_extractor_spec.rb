@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe RelationChecking::Checker::WhereClause::ValuesExtractor do
+describe RelationChecking::Clauses::WhereClause::ValuesExtractor do
   let(:values) { [double(:value, left: :some_key, right: :some_value),
                   double(:value, left: :another_key, right: :another_value)] }
-  subject { RelationChecking::Checker::WhereClause::ValuesExtractor.new(values) }
+  subject { RelationChecking::Clauses::WhereClause::ValuesExtractor.new(values) }
 
   before do
-    adapter = RelationChecking::Checker::WhereClause::ValuesExtractor::ValueAdapter
+    adapter = RelationChecking::Clauses::WhereClause::ValuesExtractor::ValueAdapter
 
     values.each do |value|
       adapter_double = double(:value_adapter, left_value: value.left, right_value: value.right)

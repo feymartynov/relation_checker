@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe RelationChecking::Checker::WhereClause::ValuesExtractor::ValueAdapter do
+describe RelationChecking::Clauses::WhereClause::ValuesExtractor::ValueAdapter do
   let(:value) { double(:value) }
-  subject { RelationChecking::Checker::WhereClause::ValuesExtractor::ValueAdapter.new(value) }
+  subject { RelationChecking::Clauses::WhereClause::ValuesExtractor::ValueAdapter.new(value) }
 
   describe '#left_value' do
     let(:left_value) { double(:left_value, name: :field_name) }

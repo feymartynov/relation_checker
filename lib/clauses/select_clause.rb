@@ -1,8 +1,8 @@
-require 'clause'
+require 'clauses/base_clause'
 
 module RelationChecking
-  class Checker
-    class SelectClause < Clause
+  module Clauses
+    class SelectClause < BaseClause
     end
   end
 end

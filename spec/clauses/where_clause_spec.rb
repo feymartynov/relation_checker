@@ -1,14 +1,14 @@
 require 'spec_helper'
 
-describe RelationChecking::Checker::WhereClause do
+describe RelationChecking::Clauses::WhereClause do
   let(:conditions) { {'public' => true, 'price' => 10..20} }
   let(:relation) { double(:relation, where_values: conditions) }
-  subject { RelationChecking::Checker::WhereClause.new(conditions) }
+  subject { RelationChecking::Clauses::WhereClause.new(conditions) }
 
   describe '#check_against' do
     context do
       before do
-        extractor = RelationChecking::Checker::WhereClause::ValuesExtractor
+        extractor = RelationChecking::Clauses::WhereClause::ValuesExtractor
         allow(extractor).to receive(:new).with(conditions)
                             .and_return(double(:extractor, to_h: conditions))
       end
@@ -18,7 +18,7 @@ describe RelationChecking::Checker::WhereClause do
       end
 
       it 'should be indifferent to hash keys' do
-        subject { RelationChecking::Checker::WhereClause.new(conditions.symbolize_keys) }
+        subject { RelationChecking::Clauses::WhereClause.new(conditions.symbolize_keys) }
         expect(subject.check_against(relation)).to eq(true)
       end
     end
@@ -27,7 +27,7 @@ describe RelationChecking::Checker::WhereClause do
       insufficient_conditions = conditions.dup.tap { |c| c.delete(c.keys.sample) }
       relation = double(:relation, where_values: insufficient_conditions)
 
-      extractor = RelationChecking::Checker::WhereClause::ValuesExtractor
+      extractor = RelationChecking::Clauses::WhereClause::ValuesExtractor
       allow(extractor).to receive(:new).with(insufficient_conditions)
                                        .and_return(double(:extractor, to_h: insufficient_conditions))
 
@@ -38,7 +38,7 @@ describe RelationChecking::Checker::WhereClause do
       wrong_conditions = conditions.dup.tap { |c| c[c.keys.sample] = :wrong_value }
       relation = double(:relation, where_values: wrong_conditions)
 
-      extractor = RelationChecking::Checker::WhereClause::ValuesExtractor
+      extractor = RelationChecking::Clauses::WhereClause::ValuesExtractor
       allow(extractor).to receive(:new).with(wrong_conditions)
                                        .and_return(double(:extractor, to_h: wrong_conditions))
 

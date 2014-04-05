@@ -1,6 +1,8 @@
+require 'clauses/base_clause'
+
 module RelationChecking
-  class Checker
-    class WhereClause < Clause
+  module Clauses
+    class WhereClause < BaseClause
       class ValuesExtractor
         class ValueAdapter
           attr_reader :value

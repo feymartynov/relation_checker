@@ -1,8 +1,8 @@
-require 'clause'
+require 'clauses/base_clause'
 
 module RelationChecking
-  class Checker
-    class OrderClause < Clause
+  module Clauses
+    class OrderClause < BaseClause
       def initialize(*values)
         @order_values = {}
 

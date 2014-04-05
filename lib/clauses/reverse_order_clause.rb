@@ -1,8 +1,8 @@
-require 'clause'
+require 'clauses/base_clause'
 
 module RelationChecking
-  class Checker
-    class ReverseOrderClause < Clause
+  module Clauses
+    class ReverseOrderClause < BaseClause
     end
   end
 end

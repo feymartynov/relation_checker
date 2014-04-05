@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe RelationChecking::Checker::OrderClause do
+describe RelationChecking::Clauses::OrderClause do
   let(:order_values) { ActiveSupport::OrderedHash[:created_at, :desc, :updated_at, :asc] }
   let(:relation) { double(:relation,
                           klass: double(:model_class, table_name: 'dummy_table'),
                           arel: double(:arel, orders: relation_order_values)) }
 
-  subject { RelationChecking::Checker::OrderClause.new(order_values) }
+  subject { RelationChecking::Clauses::OrderClause.new(order_values) }
 
   describe '#check_against' do
     context 'relation\'s order values match expectations' do

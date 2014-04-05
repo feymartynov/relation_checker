@@ -48,7 +48,7 @@ describe RelationChecking::Checker do
   describe '#method_missing' do
     context 'clause method call' do
       before :all do
-        class RelationChecking::Checker::DummyClause < RelationChecking::Checker::Clause
+        class RelationChecking::Clauses::DummyClause < RelationChecking::Clauses::BaseClause
           def check_against(_)
             true
           end
@@ -57,12 +57,12 @@ describe RelationChecking::Checker do
 
       it 'should add the requested clause' do
         subject.method_missing(:dummy)
-        expect(subject.clauses.first.class).to eq(RelationChecking::Checker::DummyClause)
+        expect(subject.clauses.first.class).to eq(RelationChecking::Clauses::DummyClause)
       end
 
       it 'should pass the arguments to the clause constructor' do
         args = [:some, :arguments]
-        expect(RelationChecking::Checker::DummyClause).to receive(:new).with(*args)
+        expect(RelationChecking::Clauses::DummyClause).to receive(:new).with(*args)
         subject.dummy(*args)
       end
 

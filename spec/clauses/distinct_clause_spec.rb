@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RelationChecking::Checker::DistinctClause do
+describe RelationChecking::Clauses::DistinctClause do
   describe '#check_against' do
   end
 end

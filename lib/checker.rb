@@ -44,12 +44,12 @@ module RelationChecking
 
     def find_clause_class_for(clause_name)
       clause_class = begin
-        self.class.const_get("#{clause_name.to_s.classify}Clause")
+        RelationChecking::Clauses.const_get("#{clause_name.to_s.classify}Clause")
       rescue NameError
         nil
       end
 
-      if clause_class.is_a?(Class) && clause_class < Clause
+      if clause_class.is_a?(Class) && clause_class < RelationChecking::Clauses::BaseClause
         clause_class
       else
         nil

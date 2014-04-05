@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RelationChecking::Checker::SelectClause do
+describe RelationChecking::Clauses::SelectClause do
   describe '#check_against' do
   end
 end
