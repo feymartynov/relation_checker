@@ -70,10 +70,20 @@ Notice, that we expect the checker to be equal to the method result, not contrar
 
 The point is to call ```.relation_checker``` method on the ActiveRecord model and then we can chain it further with ```.where```, ```.order``` and others.
 
+See integration tests for more examples and the complete description of abilities. These tests are based on [ActiveRecord Query Interface guide](http://guides.rubyonrails.org/active_record_querying.html).
+
 ## Testing
+
+To run unit tests execute:
 
 ```shell
   bundle exec rspec spec
+```
+
+To run integration tests execute:
+
+```shell
+  bundle exec rspec integration
 ```
 
 ## Contribution
