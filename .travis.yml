@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+  - 1.9.3
+  - 2.0.0
+  - ruby-head
+  - rbx
+  - jruby-19mode
+  - jruby-head
+  - ree
+branches:
+  only:
+    - master
+script: bundle exec rspec spec

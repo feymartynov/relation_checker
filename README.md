@@ -1,5 +1,7 @@
 # ActiveRecord::Relation Checker
 
+[![Build Status](https://secure.travis-ci.org/durnoyabsurd/relation_checker.png)](http://travis-ci.org/durnoyabsurd/relation_checker)
+
 __WARNING!__ This gem is under development and has no stable version yet!
 
 ## Background
