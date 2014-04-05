@@ -2,6 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/durnoyabsurd/relation_checker.png)](http://travis-ci.org/durnoyabsurd/relation_checker)
 [![Coverage Status](https://coveralls.io/repos/durnoyabsurd/relation_checker/badge.png)](https://coveralls.io/r/durnoyabsurd/relation_checker)
+[![Code Climate](https://codeclimate.com/github/durnoyabsurd/relation_checker.png)](https://codeclimate.com/github/durnoyabsurd/relation_checker)
 
 __WARNING!__ This gem is under development and has no stable version yet!
 
