@@ -12,3 +12,5 @@ branches:
 script:
   - bundle exec rspec spec
   - bundle exec rspec integration
+after_script:
+  - bundle exec coveralls push

@@ -2,7 +2,7 @@ require 'rails/all'
 require 'coveralls'
 require 'relation_checker'
 
-Coveralls.wear!
+Coveralls.wear_merged!
 
 RSpec.configure do |config|
   config.color_enabled = true
