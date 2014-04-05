@@ -34,8 +34,8 @@ Basically, it checks if all necessary WHEREs (and other clauses) are on their pl
 
 ## Requirements
 
-* Ruby >= 1.9 (tested with MRI 2.0.0)
-* Rails >= 3.2 (tested with Rails 4.0.0)
+* Ruby >= 1.9
+* Rails >= 3.2
 
 ## Installation
 

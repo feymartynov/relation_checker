@@ -6,7 +6,6 @@ rvm:
   - rbx
   - jruby-19mode
   - jruby-head
-  - ree
 branches:
   only:
     - master
