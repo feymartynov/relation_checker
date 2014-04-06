@@ -11,6 +11,6 @@ branches:
     - master
 script:
   - bundle exec rspec spec
-  - bundle exec rspec integration
+  - bundle exec rspec -I integration integration
 after_script:
   - rake coveralls:push

@@ -83,7 +83,7 @@ To run unit tests execute:
 To run integration tests execute:
 
 ```shell
-  bundle exec rspec integration
+  bundle exec rspec -I integration integration
 ```
 
 ## Contribution

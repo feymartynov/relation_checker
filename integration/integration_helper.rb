@@ -1,5 +1,7 @@
 require 'rails/all'
 require 'coveralls'
+require 'nulldb_rspec'
+require 'checker_expectations'
 require 'relation_checker'
 
 Coveralls.wear_merged!
@@ -10,7 +12,6 @@ RSpec.configure do |config|
   config.formatter = :documentation
 
   config.before do
-    require 'nulldb_rspec'
     ActiveRecord::Base.establish_connection adapter: :nulldb
   end
 end
